@@ -36,7 +36,7 @@
   
   button[type="submit"],
   button[type="button"] {
-    width: 100%;
+    width: 50%;
     padding: 12px;
     border: none;
     border-radius: 3px;
@@ -44,6 +44,69 @@
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .email, .password{
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  .form {
+    max-width: 400px;
+    padding: 40px;
+    
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #c7c7c7, -10px -10px 20px #ffffff;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 2px 2px 4px #c7c7c7;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 30%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 4px 4px 6px #c7c7c7, inset -4px -4px 6px #ffffff;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    width: 20%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 4px 4px 6px #c7c7c7, -4px -4px 6px #ffffff;
+  }
+  
+  button[type="submit"]:hover,
+  button[type="button"]:hover {
+    background-color: #0e8bf1;
   }
   
   button[type="submit"]:hover,
