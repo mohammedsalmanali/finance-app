@@ -1,11 +1,11 @@
 // Import required modules
-const express = require('express');
+import express, { json, urlencoded } from 'express';
 const app = express();
 const port = 3000; // Set the port number as per your preference
 
 // Middleware
-app.use(express.json()); // Parse JSON requests
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded requests
+app.use(json()); // Parse JSON requests
+app.use(urlencoded({ extended: true })); // Parse URL-encoded requests
 
 // Define API endpoints and corresponding route handlers
 
