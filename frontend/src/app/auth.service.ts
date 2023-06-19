@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  [x: string]: any;
   private baseUrl = 'http://your-backend-api-url';
 
   constructor(private http: HttpClient) { }
@@ -26,6 +27,7 @@ export class AuthService {
   }
 
   storeAuthToken(): void {
-    // Implement the logic to store the authentication token
+     /*localStorage.setItem('authToken', token);*/
+
   }
 }
