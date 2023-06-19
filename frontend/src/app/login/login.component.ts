@@ -1,7 +1,8 @@
 // login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'path-to-your-auth.service';
+import { AuthService } from '../auth.service';
+
 
 
 @Component({
