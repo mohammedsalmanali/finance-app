@@ -1,5 +1,7 @@
+// signup.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,21 +11,16 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   email: string = '';
   password: string = '';
-  signupError: string = '';
 
-  constructor(private router: Router) { }
-  navigateToLogin() {
-    this.router.navigate(['/login']);
-  }
-  
+  constructor(private authService: AuthService, private router: Router) { }
+
   signup() {
-    // Simulating signup logic with hardcoded validation
-    if (this.email && this.password) {
-      // Successful signup
-      this.router.navigate(['/dashboard']);
-    } else {
-      // Invalid input
-      this.signupError = 'Please enter a valid email and password.';
-    }
+    this.authService.register(this.email, this.password).subscribe(() => {
+      // Registration successful, send confirmation email
+      this.authService.sendConfirmationEmail(this.email).subscribe(() => {
+        // Email sent successfully, navigate to success page or show a message
+        this.router.navigate(['/signup/success']);
+      });
+    });
   }
 }

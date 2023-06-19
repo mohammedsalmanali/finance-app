@@ -1,5 +1,8 @@
+// login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'path-to-your-auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,21 +12,16 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
-  loginError: string = '';
 
-  constructor(private router: Router) { }
-  navigateToSignup() {
-    this.router.navigate(['/signup']);
-  }
-  
+  constructor(private authService: AuthService, private router: Router) { }
+
   login() {
-    // Simulating login logic with hardcoded credentials
-    if (this.email === 'user@example.com' && this.password === 'password') {
-      // Successful login
+    this.authService.login(this.email, this.password).subscribe(() => {
+      // Login successful, store authentication token
+      this.authService.storeAuthToken();
+      
+      // Navigate to the dashboard
       this.router.navigate(['/dashboard']);
-    } else {
-      // Invalid credentials
-      this.loginError = 'Invalid email or password. Please try again.';
-    }
+    });
   }
 }
