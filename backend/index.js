@@ -5,8 +5,8 @@ const port = 6000; // Set the port number as per your preference
 const { json } = require('express');
 const { urlencoded } = require('express');
 // Middleware
-//app.use(json()); // Parse JSON requests
-//app.use(urlencoded({ extended: true })); // Parse URL-encoded requests
+app.use(json()); // Parse JSON requests
+app.use(urlencoded({ extended: true })); // Parse URL-encoded requests
 
 // Define API endpoints and corresponding route handlers
 
